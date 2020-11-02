@@ -1,4 +1,4 @@
 # selenium-stealth
 Trying to make python selenium more stealthy.
 
-<a href="https://www.buymeacoffee.com/dipraj" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 108px !important;" ></a>
+<a href="https://www.buymeacoffee.com/dipraj"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=🍺&slug=dipraj&button_colour=79D6B5&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a>
