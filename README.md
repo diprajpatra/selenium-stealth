@@ -9,11 +9,11 @@ It can be seen as a re-implementation of JavaScript [puppeteer-extra-plugin-stea
 
 Features that currently selenium-stealth can offer:
 
-- **✔ `selenium-stealth` with stealth passes all public bot tests.**
+- ✅️ **`selenium-stealth` with stealth passes all public bot tests.**
 
-- **✔ With `selenium-stealth` selenium can do google account login.**
+- ✅️ **With `selenium-stealth` selenium can do google account login.**
 
-- **✔ `selenium-stealth` help with maintaining a normal reCAPTCHA v3 score**
+- ✅️ **`selenium-stealth` help with maintaining a normal reCAPTCHA v3 score**
 
 ## Donations
 If you find this package useful and would like to support its continued development, you can donate here. Thank you for your support.

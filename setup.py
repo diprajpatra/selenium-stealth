@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="selenium-stealth",
-    version="1.0.1",
+    version="1.0.5",
     author="Dipraj Patra",
     author_email="diprajpatra@gmail.com",
     description="Trying to make python selenium more stealthy.",
