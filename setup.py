@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="selenium-stealth",
-    version="1.0.0",
+    version="1.0.1",
     author="Dipraj Patra",
     author_email="diprajpatra@gmail.com",
     description="Trying to make python selenium more stealthy.",
@@ -19,4 +19,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3',
+    include_package_data=True,
 )
