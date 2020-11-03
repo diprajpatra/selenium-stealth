@@ -80,8 +80,8 @@ stealth(
 
 <table class="image">
 <tr>
-  <td><figure class="image"><a href="./stealthtests/selenium_chrome_headless_without_stealth.png"><img src="./stealthtests/selenium_chrome_headless_without_stealth.png"></a><figcaption>headless</figcaption></figure></td>
-  <td><figure class="image"><a href="./stealthtests/selenium_chrome_headful_without_stealth.png"><img src="./stealthtests/selenium_chrome_headful_without_stealth.png"></a><figcaption>headful</figcaption></figure></td>
+  <td><figure class="image"><a href="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headless_without_stealth.png"><img src="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headless_without_stealth.png"></a><figcaption>headless</figcaption></figure></td>
+  <td><figure class="image"><a href="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headful_without_stealth.png"><img src="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headful_without_stealth.png"></a><figcaption>headful</figcaption></figure></td>
 </tr>
 </table>
 
@@ -89,8 +89,8 @@ stealth(
 
 <table class="image">
 <tr>
-  <td><figure class="image"><a href="./stealthtests/selenium_chrome_headless_with_stealth.png"><img src="./stealthtests/selenium_chrome_headless_with_stealth.png"></a><figcaption>headless</figcaption></figure></td>
-  <td><figure class="image"><a href="./stealthtests/selenium_chrome_headful_with_stealth.png"><img src="./stealthtests/selenium_chrome_headful_with_stealth.png"></a><figcaption>headful</figcaption></figure></td>
+  <td><figure class="image"><a href="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headless_with_stealth.png"><img src="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headless_with_stealth.png"></a><figcaption>headless</figcaption></figure></td>
+  <td><figure class="image"><a href="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headful_with_stealth.png"><img src="https://raw.githubusercontent.com/diprajpatra/selenium-stealth/main/stealthtests/selenium_chrome_headful_with_stealth.png"></a><figcaption>headful</figcaption></figure></td>
 </tr>
 </table>
 
