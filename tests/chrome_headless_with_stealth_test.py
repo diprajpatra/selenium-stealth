@@ -31,7 +31,7 @@ def browser_data():
             fix_hairline=True,
             )
 
-    path = str(os.getcwd()).replace('\\', '/') + "/static/test.html"
+    path = str(os.getcwd()).replace('\\', '/') + "/tests/static/test.html"
     url = "https://bot.sannysoft.com/"
     if os.name == 'nt':
         url = 'file:///' + path
