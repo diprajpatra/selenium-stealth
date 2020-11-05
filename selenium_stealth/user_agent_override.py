@@ -1,5 +1,4 @@
 from selenium.webdriver import Chrome as Driver
-from .wrapper import evaluateOnNewDocument
 
 
 def user_agent_override(

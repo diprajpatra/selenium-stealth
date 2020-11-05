@@ -1,0 +1,3 @@
+selenium
+flake8
+pytest

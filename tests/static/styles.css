@@ -1,0 +1,40 @@
+iframe.canvased {
+            display: none;
+        }
+
+        table {
+            border: 3px solid black;
+            padding: 0;
+            margin: 0 0 10px 0;
+        }
+
+        tr, td {
+            padding: 5px;
+            margin: 0;
+        }
+
+        td {
+            border: 1px solid #CCC;
+        }
+
+        td.passed {
+            background-color: #c8d86d;
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+
+        td.warn {
+            background-color: #ffed53;
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+
+        td.failed-test {
+            background-color: #f45159;
+        }
+
+        span.age {
+            float: right;
+            margin-left: 40px;
+            margin-right: 10px;
+        }

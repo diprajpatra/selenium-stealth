@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Antibot</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="./fpCollect.min.js"></script>
+    <script src="./modernizr.js"></script>
+    <script src="./lodash.min.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script src="./ua-parser.min.js"></script>
+    <script src="./fpScanner.js"></script>
+</head>
+<body>
+
+
+<h1>Intoli.com tests + additions</h1>
+<table>
+    <tr>
+        <th>Test Name</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>User Agent <span class="age">(Old)</span></td>
+        <td class="failed-test result" id="user-agent-result"></td>
+    </tr>
+    <tr>
+        <td>WebDriver <span class="age">(New)</span></td>
+        <td class="failed-test result" id="webdriver-result">present (failed)</td>
+    </tr>
+    <tr>
+        <td>WebDriver Advanced</td>
+        <td class="failed-test result" id="advanced-webdriver-result">failed</td>
+    </tr>
+    <tr>
+        <td>Chrome <span class="age">(New)</span></td>
+        <td class="failed-test result" id="chrome-result">missing (failed)</td>
+    </tr>
+    <tr>
+        <td>Permissions <span class="age">(New)</span></td>
+        <td class="failed-test result" id="permissions-result"></td>
+    </tr>
+    <tr>
+        <td>Plugins Length <span class="age">(Old)</span></td>
+        <td class="failed-test result" id="plugins-length-result"></td>
+    </tr>
+    <tr>
+        <td>Plugins is of type PluginArray</td>
+        <td class="failed-test result" id="plugins-type-result"></td>
+    </tr>
+    <tr>
+        <td>Languages <span class="age">(Old)</span></td>
+        <td class="failed-test result" id="languages-result"></td>
+    </tr>
+    <tr>
+        <td>WebGL Vendor</td>
+        <td id="webgl-vendor"></td>
+    </tr>
+    <tr>
+        <td>WebGL Renderer</td>
+        <td id="webgl-renderer"></td>
+    </tr>
+    <tr>
+        <td>Hairline Feature</td>
+        <td id="hairline-feature"></td>
+    </tr>
+    <tr>
+        <td>Broken Image Dimensions</td>
+        <td id="broken-image-dimensions"></td>
+    </tr>
+</table>
+
+<h1><a href="https://github.com/antoinevastel/fpscanner" target="_blank">Fingerprint Scanner</a> tests</h1>
+<table id="fp2"></table>
+
+<h1>Some details</h1>
+<table>
+    <tr>
+        <td>navigator.cookieEnabled</td>
+        <td>
+            <script>
+              document.write(navigator.cookieEnabled);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.doNotTrack</td>
+        <td>
+            <script>
+              document.write(navigator.doNotTrack);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.msDoNotTrack</td>
+        <td>
+            <script>
+              document.write(navigator.msDoNotTrack);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.sendBeacon</td>
+        <td>
+            <script>
+              document.write(navigator.sendBeacon());
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.cookieEnabled</td>
+        <td>
+            <script>
+              document.write(navigator.cookieEnabled);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.userAgent</td>
+        <td>
+            <script>
+              document.write(navigator.userAgent);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.appName</td>
+        <td>
+            <script>
+              document.write(navigator.appName);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.vendor</td>
+        <td>
+            <script>
+              document.write(navigator.vendor);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.appCodeName</td>
+        <td>
+            <script>
+              document.write(navigator.appCodeName);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.getUserMedia</td>
+        <td>
+            <script>
+              document.write(navigator.getUserMedia());
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.sayswho</td>
+        <td>
+            <script>
+              document.write(navigator.sayswho);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.javaEnabled</td>
+        <td>
+            <script>
+              document.write(navigator.javaEnabled());
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.plugins</td>
+        <td>
+            <script>
+              document.write(JSON.stringify(navigator.plugins));
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>screen.width</td>
+        <td>
+            <script>
+              document.write(screen.width);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>screen.height</td>
+        <td>
+            <script>
+              document.write(screen.height);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>screen.colorDepth</td>
+        <td>
+            <script>
+              document.write(screen.colorDepth);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.language</td>
+        <td>
+            <script>
+              document.write(navigator.language);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.loadPurpose</td>
+        <td>
+            <script>
+              document.write(navigator.loadPurpose);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.platform</td>
+        <td>
+            <script>
+              document.write(navigator.platform);
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.mediaDevices</td>
+        <td id="media1">
+            <script>
+              const med = document.getElementById('media1');
+              ( async () => {
+                let devices = await navigator.mediaDevices.enumerateDevices();
+
+                let str = "";
+                devices.forEach(function (device) {
+                  str += device.kind + ": " + device.label + " id = " + device.deviceId + "<br/>";
+                });
+
+                med.innerHTML = str;
+
+              } )();
+            </script>
+
+            <div id="media"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>navigator.getBattery details</td>
+        <td id="battery1">
+            <script>
+              const battery1 = document.getElementById('battery1');
+              ( async () => {
+                const b = await navigator.getBattery();
+                battery1.innerHTML = "Charging: " + b.charging + "<br/>Level: " + b.level;
+              } )();
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td>Canvas1</td>
+        <td id="canvas1"></td>
+    </tr>
+    <tr>
+        <td>Canvas2</td>
+        <td id="canvas2"></td>
+    </tr>
+    <tr>
+        <td>Canvas3 (iframe sandbox)</td>
+        <td id="canvas3">
+            <iframe class="canvased" id="canvas3-iframe" sandbox="allow-same-origin"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <td>Canvas4 (iframe sandbox)</td>
+        <td id="canvas4">
+            <iframe class="canvased" id="canvas4-iframe" sandbox="allow-same-origin"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <td>Canvas5 (iframe)</td>
+        <td id="canvas5">
+            <iframe class="canvased" id="canvas5-iframe"></iframe>
+        </td>
+    </tr>
+</table>
+
+<h1>Fp-collect info</h1>
+<div style="padding:10px; border:1px solid red;">
+    <pre id="fp"></pre>
+</div>
+
+<script type="text/javascript" src="new.js"></script>
+
+<iframe srcdoc="Test1"></iframe>
+<iframe srcdoc="Test2" sandbox="allow-same-origin"></iframe>
+
+</body>
+</html>

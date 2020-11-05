@@ -1,0 +1,52 @@
+language: python
+os: linux
+dist: xenial
+python: "3.7"
+cache: pip
+
+addons:
+  chrome: stable
+
+before_install:
+  - wget https://chromedriver.storage.googleapis.com/86.0.4240.22/chromedriver_linux64.zip && unzip chromedriver_linux64.zip -d $HOME/bin 
+
+install:
+  - export PATH=$HOME:$PATH
+  - pip install tox
+script:
+  - tox
+
+stages:
+  - name: static analysis
+  - name: test
+
+jobs:
+  fast_finish: true
+  include:
+    - stage: static analysis
+      env: TOXENV=flake8
+      python: "3.7" 
+    
+    - stage: test
+      env: TOXENV=py3
+      python: "3"
+      
+    - stage: test
+      env: TOXENV=py34
+      python: "3.4"
+
+    - stage: test
+      env: TOXENV=py35
+      python: "3.5"
+
+    - stage: test
+      env: TOXENV=py36
+      python: "3.6"
+
+    - stage: test
+      env: TOXENV=py37
+      python: "3.7"
+
+    - stage: test
+      env: TOXENV=py38
+      python: "3.8"

@@ -17,7 +17,6 @@ from .hairline_fix import hairline_fix
 
 """
 If user_agent = None then selenium-stealth only remove the 'headless' from userAgent
-     
     Here is an example of args:
         user_agent: str = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36',
         languages: [str] = ["en-US", "en"],
@@ -27,7 +26,6 @@ If user_agent = None then selenium-stealth only remove the 'headless' from userA
         renderer: str = "Intel Iris OpenGL Engine",
         fix_hairline: bool = False,
         run_on_insecure_origins: bool = False,
-    
 """
 
 
