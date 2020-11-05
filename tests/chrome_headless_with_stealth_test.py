@@ -36,7 +36,7 @@ def browser_data():
     if os.name == 'nt':
         url = 'file:///' + path
     else:
-        url = 'file://' + path
+        url = 'file:/' + path
     print(url)
     driver.get(url)
     time.sleep(10)
