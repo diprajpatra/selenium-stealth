@@ -40,6 +40,7 @@ def browser_data():
     print(url)
     driver.get(url)
     time.sleep(10)
+    print(driver.page_source)
 
     metrics = driver.execute_cdp_cmd('Page.getLayoutMetrics', {})
     width = math.ceil(metrics['contentSize']['width'])
