@@ -1,4 +1,4 @@
-# selenium-stealth
+# selenium-stealth [![Build Status](https://travis-ci.com/diprajpatra/selenium-stealth.svg?branch=main)](https://travis-ci.com/diprajpatra/selenium-stealth)
 
 A python package **selenium-stealth** to prevent detection. This programme is trying to make python selenium more stealthy. 
 
