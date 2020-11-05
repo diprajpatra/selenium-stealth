@@ -2,7 +2,7 @@
 
 A python package **selenium-stealth** to prevent detection. This programme is trying to make python selenium more stealthy. 
 
-As of now selenium-stealth **only support Selenium Chrome**.
+As of now selenium-stealth **only support Selenium Chrome/Chromium**.
 
 After using selenium-stealth you can prevent almost all selenium detections. There is a lot of guides on stackoverflow on How to prevent selenium detection but I can not find a single python package for it so I am just creating one after all we can't let the cats win.
 It can be seen as a re-implementation of JavaScript [puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) developed by [@berstend](https://github.com/berstend>).
