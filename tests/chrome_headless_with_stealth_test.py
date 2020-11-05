@@ -37,6 +37,7 @@ def browser_data():
         url = 'file:///' + path
     else:
         url = 'file://' + path
+    print(url)
     driver.get(url)
     time.sleep(10)
 
