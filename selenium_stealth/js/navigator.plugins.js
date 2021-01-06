@@ -66,7 +66,7 @@
           value,
           writable: false,
           enumerable: false, // Important for mimeTypes & plugins: `JSON.stringify(navigator.mimeTypes)`
-          configurable: false
+          configurable: true
         })
 
       // Loop over our fake data and construct items
@@ -78,8 +78,42 @@
           }
           defineProp(item, prop, data[prop])
         }
+        return patchItem(item, data)
+      }
+
+      const patchItem = (item, data) => {
+        let descriptor = Object.getOwnPropertyDescriptors(item)
+
+        // Special case: Plugins have a magic length property which is not enumerable
+        // e.g. `navigator.plugins[i].length` should always be the length of the assigned mimeTypes
+        if (itemProto === Plugin.prototype) {
+          descriptor = {
+            ...descriptor,
+            length: {
+              value: data.__mimeTypes.length,
+              writable: false,
+              enumerable: false,
+              configurable: true // Important to be able to use the ownKeys trap in a Proxy to strip `length`
+            }
+          }
+        }
+
         // We need to spoof a specific `MimeType` or `Plugin` object
-        return Object.create(itemProto, Object.getOwnPropertyDescriptors(item))
+        const obj = Object.create(itemProto, descriptor)
+
+        // Virtually all property keys are not enumerable in vanilla
+        const blacklist = [...Object.keys(data), 'length', 'enabledPlugin']
+        return new Proxy(obj, {
+          ownKeys(target) {
+            return Reflect.ownKeys(target).filter(k => !blacklist.includes(k))
+          },
+          getOwnPropertyDescriptor(target, prop) {
+            if (blacklist.includes(prop)) {
+              return undefined
+            }
+            return Reflect.getOwnPropertyDescriptor(target, prop)
+          }
+        })
       }
 
       const magicArray = []
@@ -144,6 +178,12 @@
           typeProps.forEach((_, i) => keys.push(`${i}`))
           typeProps.forEach(propName => keys.push(propName))
           return keys
+        },
+        getOwnPropertyDescriptor(target, prop) {
+          if (prop === 'length') {
+            return undefined
+          }
+          return Reflect.getOwnPropertyDescriptor(target, prop)
         }
       })
 
@@ -221,12 +261,18 @@
   for (const pluginData of data.plugins) {
     pluginData.__mimeTypes.forEach((type, index) => {
       plugins[pluginData.name][index] = mimeTypes[type]
-      plugins[type] = mimeTypes[type]
-      Object.defineProperty(mimeTypes[type], 'enabledPlugins', {
-        value: JSON.parse(JSON.stringify(plugins[pluginData.name])),
+
+      Object.defineProperty(plugins[pluginData.name], type, {
+        value: mimeTypes[type],
+        writable: false,
+        enumerable: false, // Not enumerable
+        configurable: true
+      })
+      Object.defineProperty(mimeTypes[type], 'enabledPlugin', {
+        value: new Proxy(plugins[pluginData.name], {}), // Prevent circular references
         writable: false,
         enumerable: false, // Important: `JSON.stringify(navigator.plugins)`
-        configurable: false
+        configurable: true
       })
     })
   }

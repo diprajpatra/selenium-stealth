@@ -50,6 +50,7 @@ stealth(driver,
         webgl_vendor="Intel Inc.",
         renderer="Intel Iris OpenGL Engine",
         fix_hairline=True,
+        hardware_concurrency=4,
         )
 
 url = "https://bot.sannysoft.com/"
@@ -71,6 +72,7 @@ stealth(
     renderer: str = "Intel Iris OpenGL Engine",
     fix_hairline: bool = False,
     run_on_insecure_origins: bool = False,
+    hardware_concurrency: int = 4,
 )
 ```
 

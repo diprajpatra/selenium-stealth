@@ -14,6 +14,7 @@ from .utils import with_utils
 from .webgl_vendor import webgl_vendor_override
 from .window_outerdimensions import window_outerdimensions
 from .hairline_fix import hairline_fix
+from .navigator_hardware_concurrency import navigator_hardware_concurrency
 
 """
 If user_agent = None then selenium-stealth only remove the 'headless' from userAgent
@@ -32,10 +33,11 @@ If user_agent = None then selenium-stealth only remove the 'headless' from userA
 def stealth(driver: Driver, user_agent: str = None,
             languages: [str] = ["en-US", "en"],
             vendor: str = "Google Inc.",
-            platform: str = None,
+            platform: str = "Win32",
             webgl_vendor: str = "Intel Inc.",
             renderer: str = "Intel Iris OpenGL Engine",
             fix_hairline: bool = False,
+            hardware_concurrency: int = 4,
             run_on_insecure_origins: bool = False, **kwargs) -> None:
     if not isinstance(driver, Driver):
         raise ValueError("driver must is selenium.webdriver.Chrome, currently this lib only support Chrome")
@@ -47,6 +49,7 @@ def stealth(driver: Driver, user_agent: str = None,
     chrome_runtime(driver, run_on_insecure_origins, **kwargs)
     iframe_content_window(driver, **kwargs)
     media_codecs(driver, **kwargs)
+    navigator_hardware_concurrency(driver, hardware_concurrency, **kwargs)
     navigator_languages(driver, languages, **kwargs)
     navigator_permissions(driver, **kwargs)
     navigator_plugins(driver, **kwargs)
