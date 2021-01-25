@@ -38,7 +38,7 @@ def stealth(driver: Driver, user_agent: str = None,
             fix_hairline: bool = False,
             run_on_insecure_origins: bool = False, **kwargs) -> None:
     if not isinstance(driver, Driver):
-        raise ValueError("driver must is selenium.webdriver.Chrome, currently this lib only support Chrome")
+        raise ValueError("driver must be an instance of selenium.webdriver.Chrome")
 
     ua_languages = ','.join(languages)
 
