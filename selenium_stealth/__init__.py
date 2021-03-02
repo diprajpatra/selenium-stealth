@@ -40,8 +40,9 @@ def stealth(driver: Driver, user_agent: str = None,
             fix_iframe_content: bool = True,
             fix_window_dimensions: bool = True,
             **kwargs) -> None:
-    if not isinstance(driver, Driver):
-        raise ValueError("driver must is selenium.webdriver.Chrome, currently this lib only support Chrome")
+    if not hasattr(driver, 'execute_cdp_cmd'):
+        raise ValueError("driver does not support execute_cdp_cmd. Is it a selenium.webdriver.Chrome instance? "
+                         "Currently this lib only supports Chrome")
 
     ua_languages = ','.join(languages)
 
