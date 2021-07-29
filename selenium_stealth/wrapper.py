@@ -1,6 +1,9 @@
-from selenium.webdriver import Chrome as Driver
-from typing import Any
 import json
+from typing import Any
+
+from selenium.webdriver import Chrome as Driver
+
+from utils import execute_cdp_cmd
 
 
 def evaluationString(fun: str, *args: Any) -> str:
@@ -13,9 +16,6 @@ def evaluationString(fun: str, *args: Any) -> str:
 
 
 def evaluateOnNewDocument(driver: Driver, pagefunction: str, *args: str) -> None:
-
     js_code = evaluationString(pagefunction, *args)
 
-    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-        "source": js_code,
-    })
+    execute_cdp_cmd(driver, "Page.addScriptToEvaluateOnNewDocument", {"source": js_code})

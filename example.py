@@ -1,7 +1,10 @@
 import base64
-from selenium import webdriver
-from selenium_stealth import stealth
 import math
+
+from selenium import webdriver
+
+from selenium_stealth import stealth
+from selenium_stealth.utils import execute_cdp_cmd
 
 options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
@@ -25,11 +28,11 @@ print(driver.execute_script("return navigator.userAgent;"))
 url = "https://bot.sannysoft.com/"
 driver.get(url)
 
-metrics = driver.execute_cdp_cmd('Page.getLayoutMetrics', {})
+metrics = execute_cdp_cmd(driver, 'Page.getLayoutMetrics', {})
 width = math.ceil(metrics['contentSize']['width'])
 height = math.ceil(metrics['contentSize']['height'])
 screenOrientation = dict(angle=0, type='portraitPrimary')
-driver.execute_cdp_cmd('Emulation.setDeviceMetricsOverride', {
+execute_cdp_cmd(driver, 'Emulation.setDeviceMetricsOverride', {
     'mobile': False,
     'width': width,
     'height': height,
@@ -41,7 +44,7 @@ opt = {'format': 'png'}
 if clip:
     opt['clip'] = clip
 
-result = driver.execute_cdp_cmd('Page.captureScreenshot', opt)
+result = execute_cdp_cmd(driver, 'Page.captureScreenshot', opt)
 buffer = base64.b64decode(result.get('data', b''))
 with open('selenium_chrome_headful_with_stealth.png', 'wb') as f:
     f.write(buffer)
