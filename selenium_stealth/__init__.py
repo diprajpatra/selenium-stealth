@@ -1,4 +1,4 @@
-from selenium.webdriver import Chrome as Driver
+from selenium.webdriver.chromium.webdriver import ChromiumDriver as Driver
 
 from .chrome_app import chrome_app
 from .chrome_runtime import chrome_runtime
